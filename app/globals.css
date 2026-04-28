@@ -1,28 +1,30 @@
 @import "tailwindcss";
 
 :root {
-  --color-cream: #f5e6c8;
-  --color-cream-soft: #faf2e1;
-  --color-brown: #8b4513;
-  --color-brown-dark: #6b3410;
-  --color-gold: #d4af37;
-  --color-gold-dark: #b8961f;
-  --color-ink: #2a1810;
-  --color-ink-soft: #5a3f30;
-  --color-line: #e8d8b8;
+  --color-night: #1a1a2e;
+  --color-night-soft: #252542;
+  --color-red: #e63946;
+  --color-red-dark: #c72834;
+  --color-light: #f1f1f1;
+  --color-white: #ffffff;
+  --color-ink: #171721;
+  --color-muted: #5b6170;
+  --color-line: #d8dce5;
+  --color-panel: #ffffff;
 }
 
 @theme inline {
-  --color-cream: var(--color-cream);
-  --color-cream-soft: var(--color-cream-soft);
-  --color-brown: var(--color-brown);
-  --color-brown-dark: var(--color-brown-dark);
-  --color-gold: var(--color-gold);
-  --color-gold-dark: var(--color-gold-dark);
+  --color-night: var(--color-night);
+  --color-night-soft: var(--color-night-soft);
+  --color-red: var(--color-red);
+  --color-red-dark: var(--color-red-dark);
+  --color-light: var(--color-light);
+  --color-white: var(--color-white);
   --color-ink: var(--color-ink);
-  --color-ink-soft: var(--color-ink-soft);
+  --color-muted: var(--color-muted);
   --color-line: var(--color-line);
-  --font-display: var(--font-playfair);
+  --color-panel: var(--color-panel);
+  --font-display: var(--font-barlow);
   --font-sans: var(--font-inter);
 }
 
@@ -32,10 +34,33 @@ html {
 }
 
 body {
-  background: var(--color-cream-soft);
+  background: var(--color-light);
   color: var(--color-ink);
   font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
+}
+
+.input-field {
+  min-height: 3rem;
+  width: 100%;
+  border-radius: 0.5rem;
+  border: 1px solid var(--color-line);
+  background: var(--color-white);
+  padding-inline: 1rem;
+  color: var(--color-ink);
+  transition:
+    border-color 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.input-field::placeholder {
+  color: color-mix(in srgb, var(--color-muted) 70%, white);
+}
+
+.input-field:focus {
+  border-color: var(--color-red);
+  outline: 2px solid var(--color-red);
+  outline-offset: 2px;
 }
 
 @media (prefers-reduced-motion: reduce) {

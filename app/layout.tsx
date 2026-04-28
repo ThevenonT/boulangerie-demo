@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter } from "next/font/google";
+import { Barlow, Inter } from "next/font/google";
 import "./globals.css";
 
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
+const barlow = Barlow({
+  variable: "--font-barlow",
   subsets: ["latin"],
-  weight: ["400", "600", "700"],
+  weight: ["500", "600", "700", "800"],
   display: "swap",
 });
 
@@ -17,9 +17,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Boulangerie Artisanale depuis 1985 — Louhans",
+  title: "Centre Auto Louhans — Garage automobile à Louhans",
   description:
-    "Boulangerie artisanale à Louhans depuis 1985. Pains au levain, viennoiseries pur beurre et pâtisseries faites maison chaque jour.",
+    "Atelier de mécanique automobile à Louhans. Entretien, révision, diagnostic, pneumatiques et devis gratuit en 24h.",
 };
 
 export default function RootLayout({
@@ -30,9 +30,9 @@ export default function RootLayout({
   return (
     <html
       lang="fr"
-      className={`${playfair.variable} ${inter.variable} h-full antialiased`}
+      className={`${barlow.variable} ${inter.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-cream-soft text-ink">
+      <body className="min-h-full flex flex-col bg-light text-ink">
         {children}
       </body>
     </html>
