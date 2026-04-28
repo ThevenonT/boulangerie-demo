@@ -3,10 +3,9 @@
 import { useEffect, useState } from "react";
 
 const links = [
-  { href: "#services", label: "Services" },
-  { href: "#tarifs", label: "Tarifs" },
+  { href: "#produits", label: "Produits" },
+  { href: "#horaires", label: "Horaires" },
   { href: "#a-propos", label: "À propos" },
-  { href: "#avis", label: "Avis" },
   { href: "#contact", label: "Contact" },
 ];
 
@@ -25,8 +24,8 @@ export default function Header() {
     <header
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-200 ${
         scrolled
-          ? "bg-white/95 backdrop-blur shadow-[0_1px_0_var(--color-line)]"
-          : "bg-white/90 backdrop-blur"
+          ? "bg-cream-soft/95 backdrop-blur shadow-[0_1px_0_var(--color-line)]"
+          : "bg-cream-soft/80 backdrop-blur"
       }`}
     >
       <nav
@@ -35,17 +34,17 @@ export default function Header() {
       >
         <a
           href="#"
-          className="font-display text-xl sm:text-2xl font-extrabold text-night tracking-wide"
+          className="font-display text-xl sm:text-2xl font-bold text-brown tracking-wide"
         >
-          Centre Auto <span className="text-red">Louhans</span>
+          La Boulangerie<span className="text-gold">.</span>
         </a>
 
-        <ul className="hidden lg:flex items-center gap-8">
+        <ul className="hidden md:flex items-center gap-8">
           {links.map((l) => (
             <li key={l.href}>
               <a
                 href={l.href}
-                className="text-sm font-semibold text-muted hover:text-red transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-red focus-visible:outline-offset-4 rounded-sm"
+                className="text-sm font-medium text-ink-soft hover:text-brown transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-gold focus-visible:outline-offset-4 rounded-sm"
               >
                 {l.label}
               </a>
@@ -53,20 +52,13 @@ export default function Header() {
           ))}
         </ul>
 
-        <a
-          href="#contact"
-          className="hidden md:inline-flex items-center justify-center min-h-11 px-5 rounded-md bg-red text-white text-sm font-bold hover:bg-red-dark transition-colors duration-200 cursor-pointer focus-visible:outline-2 focus-visible:outline-red focus-visible:outline-offset-2"
-        >
-          Prendre RDV
-        </a>
-
         <button
           type="button"
           aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
           aria-expanded={open}
           aria-controls="mobile-menu"
           onClick={() => setOpen((v) => !v)}
-          className="lg:hidden inline-flex items-center justify-center w-11 h-11 rounded-md text-night hover:bg-light cursor-pointer focus-visible:outline-2 focus-visible:outline-red focus-visible:outline-offset-2"
+          className="md:hidden inline-flex items-center justify-center w-11 h-11 rounded-md text-brown hover:bg-cream cursor-pointer focus-visible:outline-2 focus-visible:outline-gold focus-visible:outline-offset-2"
         >
           <svg
             width="24"
@@ -97,8 +89,8 @@ export default function Header() {
 
       <div
         id="mobile-menu"
-        className={`lg:hidden overflow-hidden transition-[max-height] duration-300 ease-out ${
-          open ? "max-h-96" : "max-h-0"
+        className={`md:hidden overflow-hidden transition-[max-height] duration-300 ease-out ${
+          open ? "max-h-72" : "max-h-0"
         }`}
       >
         <ul className="px-4 pb-4 pt-2 flex flex-col gap-1 border-t border-line">
@@ -107,21 +99,12 @@ export default function Header() {
               <a
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="block px-3 py-3 rounded-md text-base font-semibold text-muted hover:bg-light hover:text-red transition-colors"
+                className="block px-3 py-3 rounded-md text-base font-medium text-ink-soft hover:bg-cream hover:text-brown transition-colors"
               >
                 {l.label}
               </a>
             </li>
           ))}
-          <li className="pt-2">
-            <a
-              href="#contact"
-              onClick={() => setOpen(false)}
-              className="flex items-center justify-center min-h-12 rounded-md bg-red px-4 text-white font-bold hover:bg-red-dark transition-colors"
-            >
-              Prendre RDV
-            </a>
-          </li>
         </ul>
       </div>
     </header>
